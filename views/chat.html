@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <title>{{ title }}</title>
+
+      <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+      <link href="/stylesheets/styles.css" rel="stylesheet">
+
+   </head>
+   <body>
+
+      <div class="container">
+
+         <header>
+            <h1>Yet Another Real Time Chat</h1>
+         </header>
+
+         <section class="section">
+
+            <!-- These elements are displayed as white info cards in the middle of the screen -->
+
+            <div class="connected well infocard">
+
+               <img id="creatorImage" src="/images/anonymous.png" />
+
+               <div class="infoConnected">
+                  <h2>Who are you?</h2>
+                  <br/>
+
+                  <form class="loginForm">
+                     <div class="form-group">
+                        <input type="text" id="yourName" class="form-control" placeholder="Your nick name" />
+                     </div>
+                     <div class="form-group">
+                        <input type="text" id="yourEmail" class="form-control" placeholder="Your email address" />
+                     </div>
+                     <input type="submit" id="yourEnter" class="btn btn-primary btn-lg" value="ENTER" />
+                  </form>
+
+               </div>
+
+            </div>
+
+            <div class="personinside well infocard">
+
+               <div class="row">
+                  <div class="col-xs-3">
+                     <img id="ownerImage" class="img-circle" src="/images/anonymous.png" />
+                  </div>
+                  <div class="col-xs-9">
+                     <div class="infoInside">
+                        <h2>Chat with <span class="nickname-chat"></span></h2>
+                        <br/>
+
+                        <form class="loginForm">
+                           <div class="form-group">
+                              <input type="text" id="hisName" class="form-control" placeholder="Your nick name" />
+                           </div>
+                           <div class="form-group">
+                              <input type="text" id="hisEmail" class="form-control" placeholder="Your email address" />
+                           </div>
+                           <input type="submit" id="hisEnter" class="btn btn-primary btn-lg" value="CHAT" />
+                        </form>
+                     </div>
+
+                  </div>
+               </div>
+
+            </div>
+
+            <div class="invite-textfield well infocard">
+
+               <h2>Oops, there are no other people in this chat!</h2>
+               <h5>Invite a friend by sending them this URL</h5>
+
+               <div class="link">
+                  <a title="Invite a friend" href="" id="link"></a>
+               </div>
+
+            </div>
+
+            <div class="left">
+
+               <img src="/images/anonymous.png" id="leftImage" />
+
+               <div class="info">
+                  <h2><span class="nickname-left"></span> has left this chat.</h2>
+                  <h5>Invite somebody else by sending them this page.</h5>
+               </div>
+
+            </div>
+
+            <div class="toomanypeople">
+
+               <h2>Oops, you can not join this chat!</h2>
+               <h5>There are already two people in it. Would you like to create a <a title="New Room" href="/create" id="room">new room</a>?</h5>
+
+            </div>
+
+            <div class="nomessages">
+
+               <img src="/images/anonymous.png" id="noMessagesImage" />
+
+               <div class="info">
+                  <h2>You are chatting with <span class="nickname-chat"></span>.</h2>
+                  <h5>Send them a message from the form below!</h5>
+               </div>
+
+            </div>
+
+            <div class="chatscreen">
+
+               <ul class="chats">
+                  <!-- The chat messages will go here -->
+               </ul>
+
+            </div>
+
+         </section>
+
+         <div id="chatform-container" class="clearfix">
+            <form id="chatform" class="">
+               <textarea id="message" placeholder="Write something.."></textarea>
+               <input type="submit" id="submit" value="SEND"/>
+            </form>
+         </div>
+
+         <!--<footer>-->
+            <!--<div class="row">-->
+               <!--<div class="col-xs-2">-->
+                  <!--<img src="/images/avanade.png" alt="avanade"/>-->
+               <!--</div>-->
+               <!--<div class="col-xs-8"></div>-->
+               <!--<div class="col-xs-2">-->
+                  <!--<div class="poweredby">powered by</div>-->
+                  <!--<img src="/images/nodejs.png" alt="nodejs"/>-->
+               <!--</div>-->
+            <!--</div>-->
+            <!--<div class="copyright">-->
+               <!--&copy; 2014 Avanade Inc. All Rights Reserved-->
+            <!--</div>-->
+         <!--</footer>-->
+
+      </div>
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="/javascripts/bootstrap.min.js"></script>
+      <script src="/javascripts/moment.min.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/javascripts/chat.js"></script>
+   </body>
+</html>
