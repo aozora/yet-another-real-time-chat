@@ -10,6 +10,7 @@
       <title>{{ title }}</title>
 
       <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+      <link href="/stylesheets/animate.css" rel="stylesheet">
       <link href="/stylesheets/styles.css" rel="stylesheet">
 
    </head>
@@ -25,7 +26,7 @@
 
             <!-- These elements are displayed as white info cards in the middle of the screen -->
 
-            <div class="connected well infocard">
+            <div class="connected well infocard animated fadeInDown">
 
                <img id="creatorImage" src="/images/anonymous.png" />
 
@@ -47,8 +48,8 @@
 
             </div>
 
-            <div class="personinside well infocard">
 
+            <div class="personinside well infocard animated fadeInDown">
                <div class="row">
                   <div class="col-xs-3">
                      <img id="ownerImage" class="img-circle" src="/images/anonymous.png" />
@@ -71,48 +72,56 @@
 
                   </div>
                </div>
-
             </div>
 
-            <div class="invite-textfield well infocard">
+
+            <div class="invite-textfield well infocard animated fadeInDown">
 
                <h2>Oops, there are no other people in this chat!</h2>
                <h5>Invite a friend by sending them this URL</h5>
 
-               <div class="link">
+               <div class="label label-info">
                   <a title="Invite a friend" href="" id="link"></a>
                </div>
 
             </div>
 
-            <div class="left">
 
-               <img src="/images/anonymous.png" id="leftImage" />
-
-               <div class="info">
-                  <h2><span class="nickname-left"></span> has left this chat.</h2>
-                  <h5>Invite somebody else by sending them this page.</h5>
+            <div class="left well infocard animated fadeInDown">
+               <div class="row">
+                  <div class="col-xs-3">
+                     <img id="leftImage" class="img-circle" src="/images/anonymous.png" />
+                  </div>
+                  <div class="col-xs-9">
+                     <div class="info">
+                        <h2><span class="nickname-left"></span> has left this chat.</h2>
+                        <h5>Invite somebody else by sending them this page.</h5>
+                     </div>
+                  </div>
                </div>
-
             </div>
 
-            <div class="toomanypeople">
 
+            <div class="toomanypeople well infocard animated fadeInDown">
                <h2>Oops, you can not join this chat!</h2>
                <h5>There are already two people in it. Would you like to create a <a title="New Room" href="/create" id="room">new room</a>?</h5>
-
             </div>
 
-            <div class="nomessages">
 
-               <img src="/images/anonymous.png" id="noMessagesImage" />
-
-               <div class="info">
-                  <h2>You are chatting with <span class="nickname-chat"></span>.</h2>
-                  <h5>Send them a message from the form below!</h5>
+            <div class="nomessages animated fadeInDown">
+               <div class="row">
+                  <div class="col-xs-3">
+                     <img id="noMessagesImage" class="img-circle" src="/images/anonymous.png" />
+                  </div>
+                  <div class="col-xs-9">
+                     <div class="info">
+                        <h2>You are chatting with <span class="nickname-chat"></span>.</h2>
+                        <h5>Send them a message from the form below!</h5>
+                     </div>
+                  </div>
                </div>
-
             </div>
+
 
             <div class="chatscreen">
 
@@ -153,7 +162,7 @@
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="/javascripts/bootstrap.min.js"></script>
+      <!--<script src="/javascripts/bootstrap.min.js"></script>-->
       <script src="/javascripts/moment.min.js"></script>
       <script src="/socket.io/socket.io.js"></script>
       <script src="/javascripts/chat.js"></script>

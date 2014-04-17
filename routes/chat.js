@@ -1,16 +1,12 @@
-//var express = require('express');
-//var router = express.Router();
-//
-///* GET users listing. */
-//router.get('/', function(req, res) {
-//  res.send('respond with a resource');
-//});
-//
-//module.exports = router;
-
+/**
+ * chat.js
+ * Chat setup & route handlers with socket.io
+ * @type {exports}
+ */
 
 // Use the gravatar module, to turn email addresses into avatar images:
 var gravatar = require('gravatar');
+var maxPeopleInRoom = 2;
 
 // Export a function, so that we can pass the app and io instances from the app.js file:
 module.exports = function(app,io){
@@ -33,7 +29,7 @@ module.exports = function(app,io){
                id: data
             });
          }
-         else if(chat.clients(data).length >= 2) {
+         else if(chat.clients(data).length >= maxPeopleInRoom) {
             chat.emit('tooMany', {boolean: true});
          }
       });
@@ -43,7 +39,7 @@ module.exports = function(app,io){
       socket.on('login', function(data) {
 
          // Only two people per room are allowed
-         if(chat.clients(data.id).length < 2){
+         if(chat.clients(data.id).length < maxPeopleInRoom){
 
             // Use the socket object to store data. Each client gets
             // their own unique socket object
@@ -58,7 +54,7 @@ module.exports = function(app,io){
             // Add the client to the room
             socket.join(data.id);
 
-            if(chat.clients(data.id).length == 2) {
+            if(chat.clients(data.id).length == maxPeopleInRoom) {
 
                var usernames = [],
                    avatars = [];

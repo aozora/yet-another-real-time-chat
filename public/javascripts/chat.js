@@ -268,31 +268,33 @@ $(function(){
       switch (status){
          case 'connected':
             section.children().css('display', 'none');
-            onConnect.fadeIn(1200);
+            onConnect.show();
             break;
 
          case 'inviteSomebody':
             // Set the invite link content
-            $("#link").text(window.location.href);
+            $("#link")
+               .attr('href', window.location.href)
+               .text(window.location.href);
 
-            onConnect.fadeOut(1200, function(){
-               inviteSomebody.fadeIn(1200);
+            onConnect.hide(function(){
+               inviteSomebody.show();
             });
             break;
 
          case 'personinchat':
             onConnect.css("display", "none");
-            personInside.fadeIn(1200);
+            personInside.show();
 
             chatNickname.text(data.user);
             ownerImage.attr("src",data.avatar);
             break;
 
          case 'youStartedChatWithNoMessages':
-            left.fadeOut(1200, function() {
-               inviteSomebody.fadeOut(1200,function(){
-                  noMessages.fadeIn(1200);
-                  footer.fadeIn(1200);
+            left.hide( function() {
+               inviteSomebody.hide(function(){
+                  noMessages.show();
+                  footer.show();
                });
             });
 
@@ -301,9 +303,9 @@ $(function(){
             break;
 
          case 'heStartedChatWithNoMessages':
-            personInside.fadeOut(1200,function(){
-               noMessages.fadeIn(1200);
-               footer.fadeIn(1200);
+            personInside.hide(function(){
+               noMessages.show();
+               footer.show();
             });
 
             friend = data.users[0];
@@ -321,12 +323,12 @@ $(function(){
 
             section.children().css('display','none');
             footer.css('display', 'none');
-            left.fadeIn(1200);
+            left.show();
             break;
 
          case 'tooManyPeople':
             section.children().css('display', 'none');
-            tooManyPeople.fadeIn(1200);
+            tooManyPeople.show();
             break;
       }
 
